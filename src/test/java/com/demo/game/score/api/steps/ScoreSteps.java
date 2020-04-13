@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.io.UnsupportedEncodingException;
+import java.io.IOException;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -82,10 +82,15 @@ public class ScoreSteps {
     }
 
     @And("the response has a body object with userId {int}, points {int} and position {int}")
-    public void theResponseHasABodyObjectWithUserIdPointsAndPosition(int userId, int points, int position) throws UnsupportedEncodingException {
+    public void theResponseHasABodyObjectWithUserIdPointsAndPosition(int userId, int points, int position) throws IOException {
         String responseBody = resultActions.andReturn().getResponse().getContentAsString();
 
         Assert.assertNotNull(responseBody);
+
+        UserPositionDTO userPositionDTO = objectMapper.readValue(responseBody, UserPositionDTOImpl.class);
+        Assert.assertEquals(userId, userPositionDTO.getUserId().intValue());
+        Assert.assertEquals(points, userPositionDTO.getScore().intValue());
+        Assert.assertEquals(points, userPositionDTO.getScore().intValue());
     }
 
     @And("the score was saved in the database")

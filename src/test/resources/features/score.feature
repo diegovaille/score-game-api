@@ -6,7 +6,6 @@ Feature: Game Score Requests
   Scenario: Client sends a POST with userId and points to /score
     When client sends score with userId 1 and points 500
     Then the client receives status code of 200
-    And the score was saved in the database
 
   Scenario: Clients sends a POST with empty userId to /score
     When client sends score with userId NULL and points 500
