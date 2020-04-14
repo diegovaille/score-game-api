@@ -11,7 +11,7 @@ services:
     volumes:
       - ./sql:/docker-entrypoint-initdb.d
     ports:
-      - "3306:3306"
+      - "6033:3306"
     healthcheck:
       test: "/usr/bin/mysql --user=root --password=root--execute \"SHOW DATABASES;\""
       interval: 2s
