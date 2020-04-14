@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: score-api
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://docker-mysql:3306/game?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: validate
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+  flyway:
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+    url: jdbc:mysql://docker-mysql:3306/game?useSSL=false&allowPublicKeyRetrieval=true
+    user: root
+    password: root
