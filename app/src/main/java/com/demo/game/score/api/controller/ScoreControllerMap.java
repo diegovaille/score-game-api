@@ -26,13 +26,13 @@ import java.util.Random;
 
 @Validated
 @RestController
-@RequestMapping("/h2")
-@Api(tags = "Game Score API - (H2 Implementation)")
-public class ScoreController {
+@RequestMapping("/map")
+@Api(tags = "Game Score API - (HashMap Implementation)")
+public class ScoreControllerMap {
 
     private final ScoreService scoreService;
 
-    public ScoreController(@Qualifier("scoreServiceH2") ScoreService scoreService) {
+    public ScoreControllerMap(@Qualifier("scoreServiceMap") ScoreService scoreService) {
         this.scoreService = scoreService;
     }
 
@@ -48,7 +48,7 @@ public class ScoreController {
 
         Optional<UserPositionDTO> userPositionDTO = this.scoreService.getUserPosition(userId);
         return userPositionDTO.isPresent() ? new ResponseEntity<>(userPositionDTO.get(), HttpStatus.OK) :
-             new ResponseEntity<>(new EmptyUserPositionDTO(null, null), HttpStatus.OK);
+               new ResponseEntity<>(new EmptyUserPositionDTO(null, null), HttpStatus.OK);
     }
 
     @ApiOperation(value = "Return the high score list (top 20000)")

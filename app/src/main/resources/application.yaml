@@ -4,15 +4,18 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://docker-mysql:3306/game?useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password: root
+    url: jdbc:h2:mem:gamedb
+    driverClassName: org.h2.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    username: sa
+    password: test
   jpa:
-    hibernate.ddl-auto: validate
-    properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate.ddl-auto: none
+    properties.hibernate.dialect: org.hibernate.dialect.H2Dialect
   flyway:
+    schemas: PUBLIC
     baseline-on-migrate: true
     locations: classpath:db/migration
-    url: jdbc:mysql://docker-mysql:3306/game?useSSL=false&allowPublicKeyRetrieval=true
-    user: root
-    password: root
+    url: jdbc:h2:mem:gamedb;DB_CLOSE_DELAY=-1
+    user: sa
+    password: test

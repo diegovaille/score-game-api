@@ -1,6 +1,6 @@
 package com.demo.game.score.api;
 
-import com.demo.game.score.api.repository.ScoreRepository;
+import com.demo.game.score.api.repository.ScoreH2Repository;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.mockito.Mockito;
@@ -18,7 +18,7 @@ import org.springframework.test.context.ContextConfiguration;
 public class ScoreApiSpringBootTest {
 
     @Autowired
-    private ScoreRepository scoreRepository;
+    private ScoreH2Repository scoreRepository;
 
     @Before
     public void initMocks() {

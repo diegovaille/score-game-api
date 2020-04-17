@@ -1,6 +1,6 @@
-CREATE TABLE score
-  (
-     id         INT4 NOT NULL,
-     score      INT4 NOT NULL,
-     PRIMARY KEY (id)
-  );
+CREATE TABLE scores
+(
+ user_id     INT NOT NULL,
+ score      INT NOT NULL,
+ PRIMARY KEY (user_id)
+);

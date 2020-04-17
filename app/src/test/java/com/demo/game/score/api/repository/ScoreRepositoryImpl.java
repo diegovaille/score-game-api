@@ -1,6 +1,6 @@
 package com.demo.game.score.api.repository;
 
-import com.demo.game.score.api.controller.response.UserPositionDTO;
+import com.demo.game.score.api.controller.response.IUserPosition;
 import com.demo.game.score.api.domain.UserScore;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -13,15 +13,15 @@ import java.util.Optional;
 /**
  * Due to the fact that Spring creates a proxy of the ScoreRepository interface, Mockito needs an actual class to be able to Mock
  */
-public class ScoreRepositoryImpl implements ScoreRepository {
+public class ScoreRepositoryImpl implements ScoreH2Repository {
 
     @Override
-    public List<UserPositionDTO> getHighScoreList() {
+    public List<IUserPosition> getHighScoreList() {
         return null;
     }
 
     @Override
-    public Optional<UserPositionDTO> getUserScore(Integer userId) {
+    public Optional<IUserPosition> getUserScore(Integer userId) {
         return Optional.empty();
     }
 

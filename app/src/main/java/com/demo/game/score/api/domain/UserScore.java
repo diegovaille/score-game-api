@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "score", indexes = {@Index(columnList = "id", unique = true)})
+@Table(name = "scores", indexes = {@Index(columnList = "user_id", unique = true)})
 public class UserScore implements Serializable {
 
     private int userId;
@@ -24,7 +24,7 @@ public class UserScore implements Serializable {
     }
 
     @Id
-    @Column(name = "id", nullable = false, updatable = false)
+    @Column(name = "user_id", nullable = false, updatable = false)
     public int getUserId() {
         return userId;
     }

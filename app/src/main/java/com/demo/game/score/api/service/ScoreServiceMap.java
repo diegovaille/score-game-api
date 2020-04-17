@@ -2,20 +2,21 @@ package com.demo.game.score.api.service;
 
 import com.demo.game.score.api.controller.request.UserScoreRequest;
 import com.demo.game.score.api.controller.response.HighScoreDTO;
+import com.demo.game.score.api.controller.response.IUserPosition;
 import com.demo.game.score.api.controller.response.UserPositionDTO;
 import com.demo.game.score.api.domain.UserScore;
-import com.demo.game.score.api.repository.ScoreRepository;
+import com.demo.game.score.api.repository.ScoreHashMapRepository;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Service
-public class ScoreServiceImpl implements ScoreService {
+@Service("scoreServiceMap")
+public class ScoreServiceMap implements ScoreService {
 
-    private final ScoreRepository scoreRepository;
+    private final ScoreHashMapRepository scoreRepository;
 
-    public ScoreServiceImpl(ScoreRepository scoreRepository) {
+    public ScoreServiceMap(ScoreHashMapRepository scoreRepository) {
         this.scoreRepository = scoreRepository;
     }
 
@@ -34,6 +35,7 @@ public class ScoreServiceImpl implements ScoreService {
     @Override
     @Async
     public HighScoreDTO getHighScoreList() {
+
         return new HighScoreDTO(scoreRepository.getHighScoreList());
     }
 }

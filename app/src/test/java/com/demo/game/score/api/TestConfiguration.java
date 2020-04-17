@@ -1,6 +1,6 @@
 package com.demo.game.score.api;
 
-import com.demo.game.score.api.repository.ScoreRepository;
+import com.demo.game.score.api.repository.ScoreH2Repository;
 import com.demo.game.score.api.repository.ScoreRepositoryImpl;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -28,7 +28,7 @@ public class TestConfiguration {
     }
 
     @Bean
-    public ScoreRepository scoreRepositoryMock() {
+    public ScoreH2Repository scoreRepositoryMock() {
         return Mockito.mock(ScoreRepositoryImpl.class);
     }
 }

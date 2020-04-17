@@ -4,7 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @JsonSerialize
-public class EmptyUserPositionDTO implements UserPositionDTO {
+public class EmptyUserPositionDTO extends UserPositionDTO {
+
+    public EmptyUserPositionDTO(Integer userId, Integer score) {
+        super(userId, score);
+    }
 
     @Override
     @JsonIgnore
