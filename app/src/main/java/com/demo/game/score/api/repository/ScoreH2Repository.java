@@ -21,7 +21,7 @@ public interface ScoreH2Repository extends JpaRepository<UserScore, Integer> {
                    "scores s2 ORDER BY position LIMIT 20000", nativeQuery = true)
     List<IUserPosition> getHighScoreList();
 
-    @Query(value = "SELECT s2.*, 1 + (SELECT count( * ) FROM scores s1 WHERE s1.score > s2.score ) AS position FROM " +
+    @Query(value = "SELECT s2.user_id as userId, s2.score, 1 + (SELECT count( * ) FROM scores s1 WHERE s1.score > s2.score ) AS position FROM " +
                    "scores s2 WHERE s2.user_id = ?1", nativeQuery = true)
     Optional<IUserPosition> getUserScore(Integer userId);
 }
