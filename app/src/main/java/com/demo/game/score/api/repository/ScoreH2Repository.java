@@ -1,9 +1,7 @@
 package com.demo.game.score.api.repository;
 
 import com.demo.game.score.api.controller.response.IUserPosition;
-import com.demo.game.score.api.controller.response.UserPositionDTO;
 import com.demo.game.score.api.domain.UserScore;
-import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -13,7 +11,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository("h2Repository")
-@Profile("!test")
 @Transactional
 public interface ScoreH2Repository extends JpaRepository<UserScore, Integer> {
 

@@ -1,6 +1,17 @@
-spring.autoconfigure.exclude:
-  - org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration
-  - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
-  - org.springframework.boot.actuate.autoconfigure.jdbc.DataSourceHealthIndicatorAutoConfiguration
-  - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-
+spring:
+  datasource:
+    url: jdbc:h2:mem:gamedb-bdd
+    driverClassName: org.h2.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    username: sa
+    password: test
+  jpa:
+    hibernate.ddl-auto: none
+    properties.hibernate.dialect: org.hibernate.dialect.H2Dialect
+  flyway:
+    schemas: PUBLIC
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+    url: jdbc:h2:mem:gamedb-bdd;DB_CLOSE_DELAY=-1
+    user: sa
+    password: test

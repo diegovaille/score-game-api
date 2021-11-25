@@ -1,29 +1,26 @@
 package com.demo.game.score.api.controller.request;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiParam;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserScoreRequest {
 
-    private final Integer userId;
-    private final Integer points;
-
-    @JsonCreator
-    public UserScoreRequest(@JsonProperty("userId") Integer userId,
-                            @JsonProperty("points") Integer points) {
-        this.userId = userId;
-        this.points = points;
-    }
-
+    @Valid
     @NotNull(message = "UserId must not be null")
-    public Integer getUserId() {
-        return userId;
-    }
+    @ApiParam(value = "User Id", required = true)
+    private Integer userId;
 
+    @Valid
     @NotNull(message = "Points must not be null")
-    public Integer getPoints() {
-        return points;
-    }
+    @ApiParam(value = "User Points", required = true)
+    private Integer points;
 }

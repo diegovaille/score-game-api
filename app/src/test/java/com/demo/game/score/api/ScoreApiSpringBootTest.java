@@ -24,10 +24,4 @@ public class ScoreApiSpringBootTest {
     public void initMocks() {
         MockitoAnnotations.initMocks(this);
     }
-
-    @After
-    public void resetMocks() {
-        Mockito.reset(scoreRepository);
-    }
-
 }

@@ -1,13 +1,10 @@
 package com.demo.game.score.api;
 
-import com.demo.game.score.api.repository.ScoreH2Repository;
-import com.demo.game.score.api.repository.ScoreRepositoryImpl;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
-import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -25,10 +22,5 @@ public class TestConfiguration {
                      .serializationInclusion(JsonInclude.Include.NON_NULL);
 
         return mapperBuilder.build();
-    }
-
-    @Bean
-    public ScoreH2Repository scoreRepositoryMock() {
-        return Mockito.mock(ScoreRepositoryImpl.class);
     }
 }

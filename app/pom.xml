@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.9.RELEASE</version>
+		<version>2.4.5</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
@@ -27,6 +27,13 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jetty</artifactId>
@@ -43,6 +50,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -81,6 +92,11 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>jakarta.validation</groupId>-->
+<!--			<artifactId>jakarta.validation-api</artifactId>-->
+<!--			<version>2.0.2</version>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>
@@ -129,12 +145,28 @@
 					<executable>true</executable>
 				</configuration>
 			</plugin>
+			<!-- https://mvnrepository.com/artifact/io.fabric8/docker-maven-plugin -->
 
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>1.2.0</version>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>io.fabric8</groupId>-->
+<!--				<artifactId>docker-maven-plugin</artifactId>-->
+<!--				<version>0.38.0</version>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>datalabs-nexus</id>
+			<url>https://maven.datalabserasaexperian.com.br/repository/maven-releases-v2</url>
+		</repository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>datalab</id>
+			<name>datalab-repository</name>
+			<url>https://maven.datalabserasaexperian.com.br/repository/maven-public</url>
+		</repository>
+	</repositories>
 </project>
