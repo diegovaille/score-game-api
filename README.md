@@ -5,6 +5,11 @@
 This project simulate a HTTP-based mini game back-end in Java which registers score points for different
 users, with the capability to return the current user position and high score list.
 
+### This project was build with:
+- Java 11
+- Maven
+- Cucumber (BDD)
+
 ## How to run
 
 ### Docker
